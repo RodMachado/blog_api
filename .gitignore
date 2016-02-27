@@ -12,7 +12,7 @@
 !/log/.keep
 /tmp
 
+development.tf
 terraform.tfvars
+terraform.tfstate
 terraform.tfstate.backup
-*.tf
-terraform.*
