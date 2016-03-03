@@ -1,8 +1,7 @@
-FROM ruby:2.3.0
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
-RUN mkdir /app
-WORKDIR /app
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
-RUN bundle install
-ADD . /app
+FROM azukiapp/ruby:2.2.3
+
+RUN cd /tmp && \
+  curl -L -O https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+  tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+  mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs && \
+  rm phantomjs-2.1.1-linux-x86_64.tar.bz2

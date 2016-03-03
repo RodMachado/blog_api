@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.2.3'
 gem 'rails', '4.2.5.1'
 
 gem 'coffee-rails', '~> 4.1.0'
@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do

@@ -1,11 +1,28 @@
-db:
-  image: postgres
 web:
   build: .
-  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  command: ./script/start
   volumes:
     - .:/app
+  volumes_from:
+    - box
   ports:
-    - "3000:3000"
+    - 3000
+  env_file:
+    - env/dev/web.env
+    - env/dev/app.env
   links:
     - db
+
+db:
+  image: postgres:9.4.6
+  volumes:
+    - /data/blog_api:/var/lib/postgresql/data
+  ports:
+    - 5432:5432
+  env_file:
+    - env/dev/db.env
+
+box:
+  image: busybox
+  volumes:
+    - /box
