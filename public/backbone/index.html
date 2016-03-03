@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Backbone Blog</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="backbone/vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="backbone/css/app.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class='container'>
+      <h1>My Blog</h1>
+      <div id='main'></div>
+    </div>
+
+    <script type='text/template' id='posts-index-template'>
+	   <div id='panel-region'></div>
+	   <div id='posts-list-region'></div>
+    </script>
+
+    <script type='text/template' id='panel-region-template'>
+        <button class='btn btn-primary js-new'>New</button>
+    </script>
+
+    <script type='text/template' id='posts-list-template'>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </script>
+
+    <script type='text/template' id='post-item-template'>
+      <td><%- title %></td>
+      <td>
+        <button class="btn btn-default js-edit">Edit</button>
+        <button class="btn btn-default js-delete">Delete</button>
+      </td>
+    </script>
+
+    <script id='post-detail-template' type='text/template'>
+      <h3><%- title %></h3>
+      <p><%- body %></p>
+      <button class="btn btn-default js-back">Back</button>
+    </script>
+
+    <script id='post-form-template' type='text/template'>
+      <form>
+        <div class="form-group">
+          <label for="post-title" class="control-label">Title</label>
+          <input id="post-title" class="form-control" name="title" type="text" value="<%- title %>"/>
+        </div>
+        <div class="form-group">
+          <label for="post-body" class="control-label">Body</label>
+          <textarea id="post-body" class="form-control" name="body" rows='15'><%- body %></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default js-back">Back</button>
+        </div>
+      </form>
+    </script>
+
+  </body>
+  <script src="backbone/vendor/js/jquery.js"></script>
+  <script src="backbone/vendor/js/bootstrap.js"></script>
+  <script src="backbone/vendor/js/underscore.js"></script>
+  <script src="backbone/vendor/js/backbone.js"></script>
+  <script src="backbone/vendor/js/backbone.syphon.js"></script>
+  <script src="backbone/vendor/js/backbone.marionette.js"></script>
+
+  <script src="backbone/js/app.js"></script>
+  <script src="backbone/js/routers.js"></script>
+  <script src="backbone/js/controllers/posts_controller.js"></script>
+  <script src="backbone/js/models/post_model.js"></script>
+  <script src="backbone/js/models/posts_collection.js"></script>
+  <script src="backbone/js/views/posts/index.js"></script>
+  <script src="backbone/js/views/posts/show.js"></script>
+  <script src="backbone/js/views/posts/create.js"></script>
+  <script src="backbone/js/views/posts/update.js"></script>
+  <script src="backbone/js/posts_app.js"></script>
+</html>
