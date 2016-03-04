@@ -1,4 +1,4 @@
-development: &default
+development:
   adapter: postgresql
   encoding: unicode
   database: blog_api_development
@@ -8,5 +8,10 @@ development: &default
   port: <%= ENV['DB_PORT_5432_TCP_PORT'].to_i %>
 
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: blog_api_test
+  username: <%= ENV['DB_ENV_POSTGRES_USER'] %>
+  password: <%= ENV['DB_ENV_POSTGRES_PASSWORD'] %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>
+  port: <%= ENV['DB_PORT_5432_TCP_PORT'].to_i %>
