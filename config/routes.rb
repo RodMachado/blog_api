@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json }, path: '/' do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :posts
+      resources :users, only: [:show]
     end
   end
-
-  resources :comments
 end
