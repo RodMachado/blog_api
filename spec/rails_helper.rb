@@ -11,7 +11,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.order = "random"
+  config.order = 'random'
+  config.include Devise::TestHelpers, type: :controller
   config.include Request::JsonHelpers, type: :controller
   config.include Request::HeaderHelpers, type: :controller
 
