@@ -6,6 +6,10 @@ module Request
   end
 
   module HeaderHelpers
+    def api_authorization_header(token)
+      request.headers['Authorization'] =  token
+    end
+
     def api_header(version = 1)
       request.headers['Accept'] = "application/vnd.blog_api.v#{version}"
     end

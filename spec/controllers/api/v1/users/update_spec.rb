@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Api::V1::UsersController, type: :controller do
   let!(:user) { FactoryGirl.create(:user) }
 
+  before { api_authorization_header(user.auth_token) }
+
   describe 'PUT/PATCH #update' do
     context 'when is successfully updated' do
       before(:each) do
